@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        .box {
+            border: 2px solid black;
+        }
+        .allbtn {
+            padding: 10px;
+            width: 150px;
+            margin-bottom: 20px;
+            background-color: rgb(23, 23, 80);
+            color: white;
+            border: 2px solid white;
+        }
+        .allbtn:hover {
+            width: 170px;
+            background-color: rgb(214, 136, 148);
+        }
+        #btn1 {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            height: 90px;
+            width: 85px;
+            background-color: rgb(23, 23, 80);
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animate -->
+    <div class="box" id="box1">
+        <h1>Hello World</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, distinctio.</p>
+    </div>
+    <input type="button" value="Animate" id="animate" class="allbtn">
+
+    <!-- Sliding -->
+    <h1>Sliding</h1>
+    <hr class="line">
+    <div class="box" id="box2">
+        <h1>Hello World</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, saepe.</p>
+    </div>
+    <input type="button" value="slideUp" id="slide-up" class="allbtn">
+    <input type="button" value="slideDown" id="slide-down" class="allbtn">
+    <input type="button" value="slideToggle" id="slide-toggle" class="allbtn">
+
+    <!-- Fading -->
+    <h1>Fadding</h1>
+    <hr class="line">
+    <div class="box" id="box3">
+        <h1>Hello World</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, saepe.</p>
+    </div>
+    <input type="button" value="FadeIn" id="FadeIn" class="allbtn">
+    <input type="button" value="FadeOut" id="Fadeout" class="allbtn">
+    <input type="button" value="FadeToggle" id="Fadetoggle" class="allbtn">
+    <input type="button" value="fadeTo" id="Fadeto" class="allbtn">
+
+    <!-- Hide & Show -->
+    <h1>
+        Hide & Show
+    </h1>
+    <hr class="line">
+    <div class="box" id="box4">
+        <h1>Hello World</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, saepe.</p>
+    </div>
+    <input type="button" value="Hide" id="hide" class="allbtn">
+    <input type="button" value="Show" id="show" class="allbtn">
+
+    <!-- Append & Prepend -->
+    <h1>
+        Append & Prepend
+    </h1>
+    <hr class="line">
+    <div class="box" id="box5">
+        <h1>Hello World</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, saepe.</p>
+    </div>
+    <input type="button" value="Append" id="app" class="allbtn">
+    <input type="button" value="prepend" id="pre" class="allbtn">
+
+    <!-- After & Before -->
+    <h1>After & Before</h1>
+    <hr class="line">
+    <div class="box" id="box6">
+        <h1>Hello World</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, saepe.</p>
+    </div>
+    <input type="button" value="After" id="af" class="allbtn">
+    <input type="button" value="before" id="bf" class="allbtn">
+
+    <!-- scroll to top -->
+    <button id="btn1">
+        click me
+    </button>
+
+    <!-- jQuery -->
+    <script>
+        //Animate//
+
+        $('#animate').click(function () {
+            $('#box1').animate({ right: '350px', height: '350px', width: '400px', opacity: '0.2' })
+
+        });
+
+        // slideup & down Toggle
+
+        $('#slide-up').click(function () {
+            let a = $('#box2').slideUp(1500)
+        })
+
+        $('#slide-down').click(function () {
+            let a = $('#box2').slideDown(1500)
+        })
+
+        $('#slide-toggle').click(function () {
+            let a = $('#box2').slideToggle(1500)
+        })
+
+        //  FadeIn & FadeOut
+
+        $('#FadeIn').click(function () {
+            let a = $('#box3').fadeIn(1000)
+
+        })
+
+        $('#Fadeout').click(function () {
+            let a = $('#box3').fadeOut(2000)
+
+        })
+
+        $('#Fadetoggle').click(function () {
+            let a = $('#box3').fadeToggle(2000)
+
+        })
+
+
+        $('#Fadeto').click(function () {
+            let a = $('#box3').fadeTo(2000, '0.3')
+            console.log('I am done');
+
+        })
+
+        // hide & show
+
+        $(document).ready(function () {
+            $('#hide').click(function () {
+                $('#box4').hide()
+            })
+        });
+
+
+        $(document).ready(function () {
+            $('#show').click(function () {
+                $('#box4').show()
+            })
+
+        });
+
+        //    append & prepend
+
+        $('#app').click(
+            function () {
+                $('#box5').append('<h1> Hello </h1>')
+            })
+
+        $('#pre').click(
+            function () {
+                $('#box5').prepend('<h1> Hello </h1>')
+
+            })
+
+
+        // After & before
+
+        $('#af').click(
+            function () {
+                $('#box6').after('<h1> Hello </h1>')
+            }
+        )
+        $('#bf').click(
+            function () {
+                $('#box6').before('<h1> Hello </h1>')
+            }
+        )
+
+        //    scroll
+     
+    $(document).scroll(function () {
+    let x = $(window).scrollTop();
+    if(x > 200) {
+    $('#btn1').show()
+    }
+ else{
+    $('#btn1').hide()
+ }
+ $('#btn1').click(function() {
+        $(window).scrollTop(0)
+    })
+})
+
+
+    </script>
+
+
+</body>
+
+</html>
